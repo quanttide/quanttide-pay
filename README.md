@@ -19,6 +19,7 @@
 | `apps/qtcloud-pay` | 支付云服务平台 |
 | `data/context` | 支付工程语境 |
 | `data/journal` | 支付工程日志 |
+| `data/library` | 支付工程图书馆 |
 | `docs/` | 领域文档 |
 | `examples/default` | 实验性原型 |
 | `packages/toolkit` | 共享库/工具集 |
