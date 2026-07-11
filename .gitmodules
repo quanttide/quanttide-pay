@@ -1,0 +1,3 @@
+[submodule "apps/qtcloud-pay"]
+	path = apps/qtcloud-pay
+	url = https://github.com/quanttide/qtcloud-pay.git
