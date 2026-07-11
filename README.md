@@ -16,6 +16,7 @@
 
 | 路径 | 说明 |
 |------|------|
+| `apps/qtcloud-pay` | 支付云服务平台 |
 | `docs/` | 领域文档 |
 | `examples/default` | 实验性原型 |
 | `packages/toolkit` | 共享库/工具集 |
