@@ -21,3 +21,13 @@ type Transaction struct {
 func (t *Transaction) IsValid() bool {
 	return t.AccountID != "" && IsValid(t.Type)
 }
+
+// Balance 从交易推导余额：Σ 带符号金额（余额 = 交易投影的唯一推导规则）。
+// 发券/核销等不参与余额求和的交易自动贡献 0。
+func Balance(txs []Transaction) int64 {
+	var sum int64
+	for _, t := range txs {
+		sum += SignedAmount(t.Type, t.Amount)
+	}
+	return sum
+}
