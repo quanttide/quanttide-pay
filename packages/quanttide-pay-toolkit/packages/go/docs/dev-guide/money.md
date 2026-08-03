@@ -1,6 +1,6 @@
 # Money 设计决策记录
 
-`pkg/money` 的设计决策与演进记录（按时间序）。正式的决策档案见 [data/report 技术决策 `money-integer-cents.md`](../../../../../../data/report/technical-decisions/money-integer-cents.md)，本文件记录包级设计脉络与放弃的方案。
+`pkg/money` 的设计决策与演进记录（按时间序）。本文件即该包的正式决策记录，与 [user-guide/money.md](../user-guide/money.md)（契约）配套：契约固定实现行为，本文固定设计脉络。
 
 ## D1 全链路整数分（2026-08-03）
 
