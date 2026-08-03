@@ -1,8 +1,6 @@
 # Money 金额值对象使用指南
 
-对应实现：[`pkg/money`](../pkg/money/money.go)——go-money（`github.com/Rhymond/go-money`）薄契约层。
-
-本指南是金额表示的**固定契约**：`pkg/money` 的实现必须与本文所述行为一致；金额相关改动先改本文，再改实现。
+本指南是金额表示的**固定契约**：`pkg/money` 的实现必须与本文所述行为一致；金额相关改动先改本文，再改实现。设计决策演进见[开发指南](dev-guide/money.md)。
 
 ## 金额表示约定（全链路整数分）
 

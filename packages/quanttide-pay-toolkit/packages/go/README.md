@@ -10,7 +10,7 @@
 | `pkg/status` | `PaymentStatus` / `RefundStatus` 支付单、退款单状态 |
 | `pkg/order` | 支付订单号生成（前缀 + 时间戳 + 密码学安全随机序列） |
 | `internal/` | 库的内部实现，外部不可导入 |
-| `docs/` | 使用指南与契约文档（[`user-guide/money.md`](docs/user-guide/money.md) 为金额转换契约） |
+| `docs/` | 使用指南与契约文档（[`user-guide/money.md`](docs/user-guide/money.md) 为金额转换契约；[`dev-guide/money.md`](docs/dev-guide/money.md) 为设计决策记录） |
 | `examples/` | 使用示例（`go run ./examples/payment`） |
 | `test/` | 集成测试辅助数据/环境（按需扩展） |
 
