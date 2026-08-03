@@ -1,0 +1,25 @@
+[project]
+name = "quanttide-pay-toolkit"
+version = "0.0.1"
+description = "量潮支付工程工具箱 — 量潮知识管理体系中的支付工程共享工具集"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=5",
+]
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
