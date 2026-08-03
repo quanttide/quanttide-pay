@@ -8,10 +8,12 @@
 |------|------|
 | `pkg/money` | 金额值对象（go-money 薄封装）：整数分 + ISO 4217 币种，JSON 为 `{"amount": 整数分, "currency": 币种}`（严格整数校验） |
 | `pkg/ledger` | 账本交易类型契约（recharge/refund/consume/issue/redeem）与余额影响语义；`Transaction` 交易记录契约（无存储绑定） |
-| `pkg/status` | `PaymentStatus` / `RefundStatus` 支付单、退款单状态：渠道码解析（`ParseWechatTradeState` / `ParseAlipayTradeStatus` / `ParseWechatRefundStatus`）+ 存库前校验（`IsValid*`） |
+| `pkg/status` | 状态契约：`PaymentStatus` / `RefundStatus` 支付、退款单状态（渠道码解析 + 存库前校验）；`CouponStatus`（issued/used/expired）、`OrderStatus`（created/settled）账本侧状态 |
 | `pkg/idempotency` | 幂等键构造契约（`Key` / `SettleRedeemKey`，业务号边界校验防键空间污染） |
 | `pkg/order` | 支付订单号生成（前缀 + 时间戳 + 密码学安全随机序列） |
 | `pkg/billing` | 结算抵扣计算契约（纯函数，无存储依赖）：默认顺序「满减 → 折扣 → 代金券 → 余额」、力度选择、余额不足校验 |
+| `pkg/httpapi` | HTTP JSON API 公共件：统一响应/错误体、服务错误映射（`Mapper`）、分页解析 |
+| `pkg/middleware` | HTTP 通用中间件：请求日志（方法/路径/状态码/耗时） |
 | `internal/` | 库的内部实现，外部不可导入 |
 | `docs/` | 使用指南与契约文档（[`user-guide/money.md`](docs/user-guide/money.md) 为金额转换契约；[`dev-guide/money.md`](docs/dev-guide/money.md) 为设计决策记录） |
 | `examples/` | 使用示例（`go run ./examples/payment`） |
