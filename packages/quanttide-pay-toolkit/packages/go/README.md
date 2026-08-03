@@ -11,6 +11,7 @@
 | `pkg/status` | `PaymentStatus` / `RefundStatus` 支付单、退款单状态：渠道码解析（`ParseWechatTradeState` / `ParseAlipayTradeStatus` / `ParseWechatRefundStatus`）+ 存库前校验（`IsValid*`） |
 | `pkg/idempotency` | 幂等键构造契约（`Key` / `SettleRedeemKey`，业务号边界校验防键空间污染） |
 | `pkg/order` | 支付订单号生成（前缀 + 时间戳 + 密码学安全随机序列） |
+| `pkg/billing` | 结算抵扣计算契约（纯函数，无存储依赖）：默认顺序「满减 → 折扣 → 代金券 → 余额」、力度选择、余额不足校验 |
 | `internal/` | 库的内部实现，外部不可导入 |
 | `docs/` | 使用指南与契约文档（[`user-guide/money.md`](docs/user-guide/money.md) 为金额转换契约；[`dev-guide/money.md`](docs/dev-guide/money.md) 为设计决策记录） |
 | `examples/` | 使用示例（`go run ./examples/payment`） |
