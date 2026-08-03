@@ -13,4 +13,4 @@
 ## runner
 
 - Go：`packages/go/contracttest`——`go test ./contracttest`（从 Go 模块根运行）
-- 新增语言（如 `packages/py`）：实现同一契约，消费同一 fixtures 断言输出一致
+- 新增语言（如 `packages/dart`、`packages/rust`）：实现同一契约，消费同一 fixtures 断言输出一致

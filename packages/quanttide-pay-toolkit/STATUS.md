@@ -5,7 +5,7 @@
 
 ## 1. 总体状态
 
-- **多语言工具集**，当前仅 **Go 实现**（`packages/go`）处于活跃开发；Python 侧只有 `pyproject.toml` 留位，**尚无 `src/` 实现与测试**
+- **多语言工具集**，当前仅 **Go 实现**（`packages/go`）处于活跃开发；多语言方向已定为 **Dart / Rust**（均未实现，对齐暂缓）；仓库内遗留 Python 侧留位（`pyproject.toml`，无 `src/` 实现）
 - **契约测试架构**：`tests/fixtures/`（JSON）是契约唯一权威，Go runner（`packages/go/contracttest`）消费并断言；多端对齐通过各语言消费同一份 fixtures 完成
 - **git 状态**：工具库全部改动已提交；本地 `main` 领先 `origin/main` 2 个提交（`b5b2eba` ROADMAP 对齐、`bf29189` STATUS 交接）
 - **验证基线**：`go test ./...` 与 `go vet ./...` 全绿（Go 模块内）；**Python 侧无测试可跑**（见 §4 待办 2）
@@ -17,7 +17,7 @@
 | `README.md` | 工具库概览：Python 使用示例 + Go 库说明 ⚠️（见 §4 待办 1） |
 | `pyproject.toml` | Python 包配置留位（0.0.1，pytest testpaths=`tests`） |
 | `packages/go/` | Go 实现：`pkg/`（money/ledger/status/idempotency/order/billing/httpapi/middleware）、`contracttest/`、`docs/`（user-guide + dev-guide）、`examples/`；含自身 `ROADMAP.md` 与 `STATUS.md` |
-| `packages/py/` | 计划中，未创建 |
+| `packages/dart/`、`packages/rust/` | 计划中，未创建（多语言对齐暂缓） |
 | `tests/README.md` | 契约测试说明（fixtures 权威、runner 指引） |
 | `tests/fixtures/` | `money.json` / `status.json` / `ledger.json`（billing 待补） |
 | `LICENSE` | Apache 2.0 |
@@ -33,12 +33,12 @@
 | 订单号（order.Generate） | ✅ Go | ❌ | ✅ Go | 稳定；仅订单号生成，完整模型见 G5 |
 | 计费（billing.Calculate） | ✅ Go | ❌ **待补** | ✅ Go | 主体完成，**待收尾**（fixtures + dev-guide） |
 | HTTP 公共件（httpapi/middleware） | ✅ Go | — | ✅ Go | 稳定（新增） |
-| Python 实现 | ❌ 未实现 | — | ❌ | 留位（G6 暂缓） |
+| Dart/Rust 实现 | ❌ 未实现 | — | ❌ | 留位（多语言对齐暂缓，方向为 Dart/Rust） |
 
 ## 4. 已知问题与待办（接手优先事项）
 
-1. **根 README 与实际不符（首要）**：README 的「模块」「安装」「快速开始」描述 Python 模块（`Money` / `PaymentStatus` / `generate_order_no`），但仓库内无 `src/`、无 Python 测试——**实现 Python 包或修正 README 二选一**，当前文档会误导新成员
-2. **pytest 配置与现状不符**：`pyproject.toml` 的 `testpaths = ["tests"]` 指向的目录只有 fixtures（无 `test_*.py`），运行 `uv run pytest` 会报 "no tests ran"（退出码 5）；Python 测试启用前先调整配置
+1. **根 README 与实际不符（首要）**：README 的「模块」「安装」「快速开始」描述 Python 模块（`Money` / `PaymentStatus` / `generate_order_no`），但仓库内无 `src/`、无 Python 测试，且多语言方向已定为 Dart/Rust——**修正 README（移除或标注 Python 描述为遗留）**，当前文档会误导新成员
+2. **pytest 配置与现状不符**：`pyproject.toml` 的 `testpaths = ["tests"]` 指向的目录只有 fixtures（无 `test_*.py`），运行 `uv run pytest` 会报 "no tests ran"（退出码 5）；多语言方向已改为 Dart/Rust，**建议删除 `pyproject.toml` 与 README 的 Python 描述一并清理**
 3. **Go 侧待办**（详见 [`packages/go/STATUS.md`](packages/go/STATUS.md)）：
    - billing 补 fixtures 与 `dev-guide/billing.md` 决策记录（G3 收尾）
    - `Transaction.Contract()` 文档声称已完成、代码中不存在（补实现或改文档）

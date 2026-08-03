@@ -1,7 +1,7 @@
 // Package contracttest 契约测试 Go runner。
 //
 // 读取工具库根 tests/fixtures/ 下的共享测试向量，断言 Go 实现与契约一致：
-// 同一输入 → 同一输出 / 同一拒绝行为。其他语言实现（如 packages/py）消费
+// 同一输入 → 同一输出 / 同一拒绝行为。其他语言实现（如 packages/dart、packages/rust）消费
 // 同一 fixtures，即完成多端对齐——fixtures 是契约的唯一权威。
 package contracttest
 
