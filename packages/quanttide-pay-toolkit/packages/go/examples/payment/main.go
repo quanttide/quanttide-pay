@@ -2,6 +2,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 
@@ -11,12 +12,25 @@ import (
 )
 
 func main() {
-	// 金额：以分为单位，避免浮点误差
-	total, err := money.MustMoney(1234, "CNY").Add(money.MustMoney(100, "CNY"))
+	// 金额：完整值对象（整数分 + ISO 4217 币种），避免浮点误差
+	total, err := money.New(1234, money.CNY).Add(money.New(100, money.CNY))
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("金额合计: %d 分（%s）\n", total.Cents, total.Currency)
+	fmt.Printf("金额合计: %s\n", total.Display())
+
+	// JSON 边界：整数分 + 币种，严格校验
+	b, err := json.Marshal(money.New(9999, money.CNY))
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("序列化: %s\n", b)
+
+	var amount money.Money
+	if err := json.Unmarshal([]byte(`{"amount": 9999, "currency": "CNY"}`), &amount); err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("反序列化: %d 分\n", amount.Amount())
 
 	// 状态：取值可直接存入数据库、与渠道报文流转
 	fmt.Printf("支付成功状态: %s\n", status.PaymentStatusSucceeded)
