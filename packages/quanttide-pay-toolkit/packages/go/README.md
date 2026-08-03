@@ -15,9 +15,10 @@
 | `pkg/httpapi` | HTTP JSON API 公共件：统一响应/错误体、服务错误映射（`Mapper`）、分页解析 |
 | `pkg/middleware` | HTTP 通用中间件：请求日志（方法/路径/状态码/耗时） |
 | `internal/` | 库的内部实现，外部不可导入 |
+| `contracttest/` | 契约测试 Go runner（消费工具库根 `tests/fixtures/`，fixtures 是契约唯一权威） |
 | `docs/` | 使用指南与契约文档（[`user-guide/money.md`](docs/user-guide/money.md) 为金额转换契约；[`dev-guide/money.md`](docs/dev-guide/money.md) 为设计决策记录） |
 | `examples/` | 使用示例（`go run ./examples/payment`） |
-| `test/` | 集成测试辅助数据/环境（按需扩展） |
+| `test/` | 集成测试辅助数据/环境（预留，按需扩展） |
 
 ## 使用
 
@@ -39,6 +40,25 @@ s := status.PaymentStatusSucceeded
 // 订单号：PAY20260803143000 + 10 位随机数字
 orderNo, err := order.GenerateNow("PAY")
 ```
+
+## 契约测试
+
+共享测试向量（JSON fixtures，工具库根 `tests/fixtures/`）是契约**唯一权威**，各语言实现消费同一份断言一致。Go runner 位于 `contracttest/`：
+
+```bash
+go test ./contracttest
+```
+
+## 文档
+
+| 文档 | 内容 |
+|------|------|
+| [ROADMAP.md](ROADMAP.md) | 任务状态与待定决策（G1–G6） |
+| [STATUS.md](STATUS.md) | 交接状态与待办优先事项 |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | 包纪律、契约测试纪律、文档同步清单 |
+| [AGENTS.md](AGENTS.md) | agent 工作索引与 harness 纪律 |
+| `docs/dev-guide/` | 设计决策记录（改契约前先读） |
+| `docs/user-guide/` | 使用契约 |
 
 ## 开发
 
