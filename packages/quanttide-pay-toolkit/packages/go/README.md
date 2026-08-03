@@ -7,7 +7,7 @@
 | 路径 | 说明 |
 |------|------|
 | `pkg/money` | 金额值对象（go-money 薄封装）：整数分 + ISO 4217 币种，JSON 为 `{"amount": 整数分, "currency": 币种}`（严格整数校验） |
-| `pkg/ledger` | 账本交易类型契约（recharge/refund/consume/issue/redeem）与余额影响语义 |
+| `pkg/ledger` | 账本交易类型契约（recharge/refund/consume/issue/redeem）与余额影响语义；`Transaction` 交易记录契约（无存储绑定） |
 | `pkg/status` | `PaymentStatus` / `RefundStatus` 支付单、退款单状态：渠道码解析（`ParseWechatTradeState` / `ParseAlipayTradeStatus` / `ParseWechatRefundStatus`）+ 存库前校验（`IsValid*`） |
 | `pkg/order` | 支付订单号生成（前缀 + 时间戳 + 密码学安全随机序列） |
 | `internal/` | 库的内部实现，外部不可导入 |
