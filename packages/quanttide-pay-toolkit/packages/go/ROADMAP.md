@@ -4,13 +4,13 @@
 
 主干边界：会算钱、会定状态、会推导结果的纯逻辑（值对象/枚举/纯函数）进工具库；实体、存储（gorm）、事务编排、渠道适配留在应用壳（provider）。
 
-## 当前阶段：G1 / G2 / G4（进行）
+## 当前阶段：G1 / G2 / G4（已完成 2026-08-03）
 
 | # | 优先级 | 任务 | 落点 | 状态 |
 |---|--------|------|------|------|
-| G1 | P0 | `ledger.Balance`：余额推导纯函数（余额 = Σ带符号交易）——消除「SQL CASE WHEN 聚合」与「SignedAmount 循环」两处实现的漂移风险 | `pkg/ledger`（`ledger.go` 或 `transaction.go`）+ 测试；`docs/dev-guide/ledger.md` 补 D3 决策记录；provider `transaction/gorm` 的 `SumByAccount` 加与 `ledger.Balance` 的等价性测试 | 未开始 |
-| G2 | P0 | 契约测试骨架：共享测试向量（JSON fixtures）+ Go runner——fixtures 是契约唯一权威，各语言消费同一份 | 工具库根 `tests/`（`fixtures/` + Go runner，pytest 驱动留位）；先覆盖已抽的 money / status / ledger | 未开始 |
-| G4 | P0 | `pkg/idempotency` 幂等键契约实施：键构造 `Key(biz, bizNo)`、业务前缀常量、边界校验（业务号含 `:` 拒绝） | 新 `pkg/idempotency` + 测试；provider account/coupon/voucher/order 四个 service 改引用（决策已定：data/report `idempotency-key-contract.md`） | 未开始 |
+| G1 | P0 | `ledger.Balance`：余额推导纯函数（余额 = Σ带符号交易）——消除「SQL CASE WHEN 聚合」与「SignedAmount 循环」两处实现的漂移风险 | `pkg/ledger`（`ledger.go` 或 `transaction.go`）+ 测试；`docs/dev-guide/ledger.md` 补 D3 决策记录；provider `transaction/gorm` 的 `SumByAccount` 加与 `ledger.Balance` 的等价性测试 | ✅ 已完成（含 `Transaction.Contract()` 契约视图） |
+| G2 | P0 | 契约测试骨架：共享测试向量（JSON fixtures）+ Go runner——fixtures 是契约唯一权威，各语言消费同一份 | 工具库根 `tests/`（`fixtures/` + Go runner，pytest 驱动留位）；先覆盖已抽的 money / status / ledger | ✅ 已完成（`tests/fixtures/` + `contracttest`，三份 fixtures 全过） |
+| G4 | P0 | `pkg/idempotency` 幂等键契约实施：键构造 `Key(biz, bizNo)`、业务前缀常量、边界校验（业务号含 `:` 拒绝） | 新 `pkg/idempotency` + 测试；provider account/coupon/voucher/order 四个 service 改引用（决策已定：data/report `idempotency-key-contract.md`） | ✅ 已完成（含 reconciliation 对账匹配键、conventions.md 引用、dev-guide D1） |
 
 ## 搁置：G3 / G5（等待层边界仲裁，同批实施）
 

@@ -44,3 +44,21 @@ func TestTransactionIsValid(t *testing.T) {
 		}
 	}
 }
+
+func TestBalance(t *testing.T) {
+	// 余额 = Σ带符号金额：充值 +，退款/消费 −，发券/核销不参与。
+	// 10000 − 3000 − 2000 = 5000（发券/核销贡献 0）。
+	txs := []Transaction{
+		{Type: TypeRecharge, Amount: 10000},
+		{Type: TypeConsume, Amount: 3000},
+		{Type: TypeRefund, Amount: 2000},
+		{Type: TypeIssue, Amount: 5000},
+		{Type: TypeRedeem, Amount: 1000},
+	}
+	if got := Balance(txs); got != 5000 {
+		t.Errorf("Balance = %d, want 5000", got)
+	}
+	if got := Balance(nil); got != 0 {
+		t.Errorf("Balance(nil) = %d, want 0", got)
+	}
+}

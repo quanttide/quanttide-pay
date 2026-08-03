@@ -1,0 +1,13 @@
+{
+  "valid": [
+    {"json": "{\"amount\":1234,\"currency\":\"CNY\"}", "expect_cents": 1234},
+    {"json": "{\"amount\":0,\"currency\":\"\"}", "expect_cents": 0}
+  ],
+  "invalid": [
+    {"json": "{\"amount\":99.99,\"currency\":\"CNY\"}", "reason": "小数静默截断应拒绝"},
+    {"json": "{\"amount\":\"100\",\"currency\":\"CNY\"}", "reason": "字符串金额应拒绝"},
+    {"json": "{\"amount\":1e3,\"currency\":\"CNY\"}", "reason": "指数记法应拒绝"},
+    {"json": "{\"amount\":100,\"currency\":\"\"}", "reason": "非零金额必须携带币种"},
+    {"json": "{\"amount\":100,\"currency\":\"XYZ\"}", "reason": "未知币种应拒绝"}
+  ]
+}

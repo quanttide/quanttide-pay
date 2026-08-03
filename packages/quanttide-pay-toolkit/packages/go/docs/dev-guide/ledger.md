@@ -29,6 +29,16 @@
 
 **影响**：跨应用读账本以 `ledger.Transaction` 契约为准；gorm 模型与契约的显式转换在真实跨应用消费者出现时补充（当前 provider JSON 输出已与契约同形状）。
 
+## D3 余额推导纯函数（2026-08-03）
+
+**背景**：余额 = Σ带符号交易是全系统的不变式（对账、账单、一致性校验都依赖），但推导规则存在两处实现：`ledger.SignedAmount`（Go 循环）与 provider `transaction/gorm` 的 `SumByAccount`（SQL `CASE WHEN` 聚合）——两者必须永远等价，各自维护有漂移风险（新增影响余额的类型时漏改一处即错账）。
+
+**决策**：`pkg/ledger` 新增 `Balance(txs []Transaction) int64`——Σ `SignedAmount`，是余额推导的**唯一权威规则**；provider 的 SQL 聚合保留作性能优化，但用等价性测试锁定「SQL 结果 == `ledger.Balance` 结果」（经 `Transaction.Contract()` 契约视图转换）。
+
+**理由**：与「契约进工具库、实现留应用」同范式——推导规则跨应用共享且演进一致（多端统一对账/账单），必须单一权威；SQL 是同一语义的等价实现，等价性测试把漂移变成编译期可见的测试失败。
+
+**影响**：新增影响余额的交易类型时，`AffectsBalance`/`SignedAmount`/`Balance` 一处修改，等价性测试强制 SQL 同步。
+
 ## 未纳入
 
 - 交易金额、幂等键等不属于类型契约，分别由 `pkg/money`、`pkg/idempotency`（另见 data/report 决策）负责
