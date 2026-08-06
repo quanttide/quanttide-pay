@@ -4,7 +4,7 @@
 
 本仓库是支付工程领域的**编排仓库**：大部分内容在子模块（`apps/`、`data/`）与普通目录（`packages/quanttide-pay-toolkit`）中。
 
-- **子模块**（`apps/qtcloud-pay`、`data/*`）：各自独立仓库，在主仓库**只提交指针更新**
+- **子模块**（`apps/qtcloud-pay`、`data/*`、`packages/quanttide-pay-toolkit`）：各自独立仓库，在主仓库**只提交指针更新**
 - **工具库**（`packages/quanttide-pay-toolkit`）：本仓库直接跟踪，Go 基础库 + 契约测试 fixtures
 
 ## 提交规范
@@ -23,7 +23,7 @@ fix(provider): 渠道码解析未知码不再静默降级
 
 ## 子模块纪律
 
-1. 先进入子模块仓库提交并推送，再回主仓库 `git add <子模块路径>` 更新指针
+1. 先进入子模块仓库提交并推送，再回主仓库 `git add <子模块路径>` 更新指针（工具库为 `quanttide/quanttide-pay-toolkit`）
 2. 不把子模块内容改作他用；主仓库 diff 中子模块条目只应是指针变化
 3. `git submodule update --init --recursive` 初始化后开始工作
 

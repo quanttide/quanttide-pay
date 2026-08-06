@@ -4,7 +4,7 @@
 
 ## 仓库是什么
 
-量潮支付工程编排仓库：`apps/qtcloud-pay`（支付云服务，子模块）、`data/*`（知识子模块）、`packages/quanttide-pay-toolkit`（共享工具集，本仓库直接跟踪）。
+量潮支付工程编排仓库：`apps/qtcloud-pay`（支付云服务，子模块）、`data/*`（知识子模块）、`packages/quanttide-pay-toolkit`（共享工具集，子模块，独立仓库 `quanttide/quanttide-pay-toolkit`）。
 
 ## 关键文件（按优先级阅读）
 
@@ -37,6 +37,6 @@ harness = 契约测试骨架：`tests/fixtures/`（JSON 契约向量） + `contr
 
 ## 提交纪律
 
-- 子模块（`apps/qtcloud-pay`、`data/*`）内容先提交到各自仓库，主仓库只记录指针
+- 子模块（`apps/qtcloud-pay`、`data/*`、`packages/quanttide-pay-toolkit`）内容先提交到各自仓库，主仓库只记录指针
 - Conventional Commits，中文描述（如 `feat(toolkit): ...`）；文档与代码同批提交
 - 提交前核对：相关 `STATUS.md` 待办是否已消化、文档是否同步、`go test ./... && go vet ./...` 是否通过

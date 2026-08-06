@@ -22,3 +22,6 @@
 [submodule "data/report"]
 	path = data/report
 	url = https://github.com/quanttide/quanttide-report-of-payment-engineering.git
+[submodule "packages/quanttide-pay-toolkit"]
+	path = packages/quanttide-pay-toolkit
+	url = https://github.com/quanttide/quanttide-pay-toolkit.git
