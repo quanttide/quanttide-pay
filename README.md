@@ -24,7 +24,7 @@
 | `data/insight` | 子模块 | 支付工程洞察 |
 | `data/roadmap` | 子模块 | 支付工程路线图 |
 | `data/report` | 子模块 | 支付工程报告 |
-| `packages/quanttide-pay-toolkit` | 本仓库目录 | 支付工程共享工具集：Go 基础库（`packages/go/`）+ 契约测试 fixtures（`tests/`） |
+| `packages/quanttide-pay-toolkit` | 子模块 | 支付工程共享工具集（独立仓库 `quanttide/quanttide-pay-toolkit`）：Go 基础库（`packages/go/`）+ 契约测试 fixtures（`tests/`） |
 
 子模块操作：`git submodule update --init --recursive`；子模块内部改动须先在子模块仓库内提交，再回主仓库更新指针（见 [CONTRIBUTING.md](CONTRIBUTING.md)）。
 
