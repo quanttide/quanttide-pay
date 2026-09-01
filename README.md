@@ -17,14 +17,26 @@
 | 路径 | 类型 | 说明 |
 |------|------|------|
 | `apps/qtcloud-pay` | 子模块 | 支付云服务平台（独立仓库，见 [.gitmodules](.gitmodules)） |
+| `apps/qtbusiness` | 子模块 | 量潮商务中心（独立仓库 `quanttide/qtbusiness`）：服务黄页——定制服务与解决方案展示 |
+| `packages/quanttide-pay-toolkit` | 子模块 | 支付工程共享工具集（独立仓库 `quanttide/quanttide-pay-toolkit`）：Go 基础库（`packages/go/`）+ 契约测试 fixtures（`tests/`） |
+| `examples/default` | 子模块 | 支付工程实验室（独立仓库 `quanttide/quanttide-laboratory-of-payment-engineering`） |
 | `data/context` | 子模块 | 支付工程语境 |
 | `data/journal` | 子模块 | 支付工程日志 |
-| `data/library` | 子模块 | 支付工程图书馆 |
+| `data/profile` | 子模块 | 支付工程档案 |
 | `data/intention` | 子模块 | 支付工程意图 |
-| `data/insight` | 子模块 | 支付工程洞察 |
 | `data/roadmap` | 子模块 | 支付工程路线图 |
+| `data/insight` | 子模块 | 支付工程洞察 |
+| `data/brochure` | 子模块 | 支付工程宣传册 |
 | `data/report` | 子模块 | 支付工程报告 |
-| `packages/quanttide-pay-toolkit` | 子模块 | 支付工程共享工具集（独立仓库 `quanttide/quanttide-pay-toolkit`）：Go 基础库（`packages/go/`）+ 契约测试 fixtures（`tests/`） |
+| `data/library` | 子模块 | 支付工程参考 |
+| `data/history` | 子模块 | 支付工程历史 |
+| `data/archive` | 子模块 | 支付工程归档 |
+| `docs/bylaw` | 子模块 | 支付工程章程 |
+| `docs/handbook` | 子模块 | 支付工程手册 |
+| `docs/specification` | 子模块 | 支付工程标准 |
+| `docs/tutorial` | 子模块 | 支付工程教程 |
+| `docs/essay` | 子模块 | 支付工程札记 |
+| `docs/gallery` | 子模块 | 支付工程案例集 |
 
 子模块操作：`git submodule update --init --recursive`；子模块内部改动须先在子模块仓库内提交，再回主仓库更新指针（见 [CONTRIBUTING.md](CONTRIBUTING.md)）。
 
