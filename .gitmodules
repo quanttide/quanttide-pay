@@ -61,3 +61,6 @@
 [submodule "apps/qtbusiness"]
 	path = apps/qtbusiness
 	url = https://github.com/quanttide/qtbusiness.git
+[submodule "apps/qtaccount"]
+	path = apps/qtaccount
+	url = https://github.com/quanttide/qtaccount.git
