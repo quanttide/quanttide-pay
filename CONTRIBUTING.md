@@ -4,7 +4,7 @@
 
 本仓库是支付工程领域的**编排仓库**：大部分内容在子模块（`apps/`、`data/`、`docs/`、`examples/`、`packages/`）中。
 
-- **子模块**（`apps/qtcloud-pay`、`apps/qtbusiness`、`data/*`、`docs/*`、`examples/default`、`packages/quanttide-pay-toolkit`）：各自独立仓库，在主仓库**只提交指针更新**
+- **子模块**（`apps/qtcloud-pay`、`apps/qtbusiness`、`data/*`、`docs/*`、`examples/quanttide-pay-lab`、`packages/quanttide-pay-toolkit`）：各自独立仓库，在主仓库**只提交指针更新**
 - **工具库**（`packages/quanttide-pay-toolkit`）：独立仓库 `quanttide/quanttide-pay-toolkit`，Go 基础库 + 契约测试 fixtures
 
 ## 提交规范
