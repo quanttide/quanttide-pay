@@ -19,7 +19,7 @@
 | `apps/qtcloud-pay` | 子模块 | 支付云服务平台（独立仓库，见 [.gitmodules](.gitmodules)） |
 | `apps/qtbusiness` | 子模块 | 量潮商务中心（独立仓库 `quanttide/qtbusiness`）：服务黄页——定制服务与解决方案展示 |
 | `packages/quanttide-pay-toolkit` | 子模块 | 支付工程共享工具集（独立仓库 `quanttide/quanttide-pay-toolkit`）：Go 基础库（`packages/go/`）+ 契约测试 fixtures（`tests/`） |
-| `examples/default` | 子模块 | 支付工程实验室（独立仓库 `quanttide/quanttide-laboratory-of-payment-engineering`） |
+| `examples/quanttide-pay-lab` | 子模块 | 支付工程实验室（独立仓库 `quanttide/quanttide-pay-lab`） |
 | `data/context` | 子模块 | 支付工程语境 |
 | `data/journal` | 子模块 | 支付工程日志 |
 | `data/profile` | 子模块 | 支付工程档案 |
