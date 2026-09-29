@@ -25,9 +25,9 @@
 [submodule "packages/quanttide-pay-toolkit"]
 	path = packages/quanttide-pay-toolkit
 	url = https://github.com/quanttide/quanttide-pay-toolkit.git
-[submodule "examples/default"]
-	path = examples/default
-	url = https://github.com/quanttide/quanttide-laboratory-of-payment-engineering.git
+[submodule "examples/quanttide-pay-lab"]
+	path = examples/quanttide-pay-lab
+	url = https://github.com/quanttide/quanttide-pay-lab.git
 [submodule "data/profile"]
 	path = data/profile
 	url = https://github.com/quanttide/quanttide-profile-of-payment-engineering.git
