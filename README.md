@@ -18,7 +18,7 @@
 |------|------|------|
 | `apps/qtcloud-pay` | 子模块 | 支付云服务平台（独立仓库，见 [.gitmodules](.gitmodules)） |
 | `apps/qtbusiness` | 子模块 | 量潮商务中心（独立仓库 `quanttide/qtbusiness`）：服务黄页——定制服务与解决方案展示 |
-| `packages/quanttide-pay-toolkit` | 子模块 | 支付工程共享工具集（独立仓库 `quanttide/quanttide-pay-toolkit`）：Go 基础库（`packages/go/`）+ 契约测试 fixtures（`tests/`） |
+| `packages/quanttide-pay-toolkit` | 子模块 | 支付工程共享标准库（独立仓库 `quanttide/quanttide-pay-toolkit`）：Go 基础库（`packages/go/`）+ 契约测试 fixtures（`tests/`） |
 | `examples/quanttide-pay-lab` | 子模块 | 支付工程实验室（独立仓库 `quanttide/quanttide-pay-lab`） |
 | `data/context` | 子模块 | 支付工程语境 |
 | `data/journal` | 子模块 | 支付工程日志 |
@@ -40,13 +40,13 @@
 
 子模块操作：`git submodule update --init --recursive`；子模块内部改动须先在子模块仓库内提交，再回主仓库更新指针（见 [CONTRIBUTING.md](CONTRIBUTING.md)）。
 
-## 共享工具集
+## 共享标准库
 
 `packages/quanttide-pay-toolkit` 承载领域主干（会算钱、会定状态、会推导结果的纯逻辑）：
 
 - **Go 实现**（`packages/go/`）：money / ledger / status / idempotency / order / billing / httpapi / middleware
-- **契约测试**：`tests/fixtures/`（JSON）是契约唯一权威，各语言实现消费同一份断言一致；当前 Go runner 已就位，**多语言方向为 Dart / Rust**（暂缓，详见工具库 [ROADMAP](packages/quanttide-pay-toolkit/ROADMAP.md)）
-- **状态文档**：工具库 [STATUS.md](packages/quanttide-pay-toolkit/STATUS.md)（交接状态与待办）
+- **契约测试**：`tests/fixtures/`（JSON）是契约唯一权威，各语言实现消费同一份断言一致；当前 Go runner 已就位，**多语言方向为 Dart / Rust**（暂缓，详见标准库 [ROADMAP](packages/quanttide-pay-toolkit/ROADMAP.md)）
+- **状态文档**：标准库 [STATUS.md](packages/quanttide-pay-toolkit/STATUS.md)（交接状态与待办）
 
 ## 参与贡献
 
